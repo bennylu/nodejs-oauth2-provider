@@ -7,7 +7,7 @@ const expressApp = express();
 const bodyParser = require('body-parser');
 expressApp.use(bodyParser.urlencoded({ extended: true }));
 
-// oauth
+// oauth2
 const oAuthServer = require('node-oauth2-server');
 const oAuthModel = require('./auth/oAuthModel');
 expressApp.oauth = oAuthServer({
@@ -15,6 +15,7 @@ expressApp.oauth = oAuthServer({
     grants: ['password'],
     debug: true
 });
+expressApp.use(expressApp.oauth.errorHandler());
 
 // auth route
 const authRouter
