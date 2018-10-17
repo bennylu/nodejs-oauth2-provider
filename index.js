@@ -13,6 +13,7 @@ const oAuthModel = require('./auth/oAuthModel');
 expressApp.oauth = oAuthServer({
     model: oAuthModel,
     grants: ['password'],
+    accessTokenLifetime: 30 * 24 * 60 * 60, // 30 days
     debug: true
 });
 
