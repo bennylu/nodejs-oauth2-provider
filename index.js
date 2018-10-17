@@ -15,12 +15,14 @@ expressApp.oauth = oAuthServer({
     grants: ['password'],
     debug: true
 });
-expressApp.use(expressApp.oauth.errorHandler());
 
 // auth route
 const authRouter
     = require('./auth/router')(express.Router(), expressApp);
 expressApp.use('/auth', authRouter);
+
+// setup error handling after all routes are added
+expressApp.use(expressApp.oauth.errorHandler());
 
 // start listening
 expressApp.listen(port, () => {

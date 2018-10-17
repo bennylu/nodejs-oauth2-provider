@@ -26,7 +26,7 @@ var getUser = (username, password, callback) => {
 
 var saveAccessToken = (accessToken, clientID, expires, user, callback) => {
 	console.log('saveAccessToken');
-	accessTokenDB.saveAccessToken(accessToken, user.username, callback);
+	accessTokenDB.saveAccessToken(accessToken, user.username, expires, callback);
 };
 
 var getAccessToken = (accessToken, callback) => {

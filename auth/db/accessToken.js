@@ -1,6 +1,6 @@
 const mysqlWrapper = require('./mysqlWrapper');
 
-var saveAccessToken = (accessToken, username, callback) => {
+var saveAccessToken = (accessToken, username, expires, callback) => {
 	var queryString = `insert into access_tokens (access_token, user_id) values ('${accessToken}', '${username}')`;
 	mysqlWrapper.query(queryString, response => {
 		callback(response.error);
