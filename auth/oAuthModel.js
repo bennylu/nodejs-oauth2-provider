@@ -2,7 +2,12 @@ const userDB = require('./db/users');
 const accessTokenDB = require('./db/accessToken');
 
 var getClient = (clientID, clientSecret, callback) => {
-	console.log('getClient');
+	console.log('getClient', clientID, clientSecret);
+
+	var validClient = !true;
+
+	if (!validClient)
+		return callback(false, null);
 
 	var client = {
 		clientID,
@@ -10,7 +15,6 @@ var getClient = (clientID, clientSecret, callback) => {
 		grants: null,
 		redirectUris: null
 	};
-
 	callback(false, client);
 };
 
