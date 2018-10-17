@@ -4,7 +4,7 @@ const accessTokenDB = require('./db/accessToken');
 var getClient = (clientID, clientSecret, callback) => {
 	console.log('getClient', clientID, clientSecret);
 
-	var validClient = !true;
+	var validClient = true;
 
 	if (!validClient)
 		return callback(false, null);
