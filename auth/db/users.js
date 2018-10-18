@@ -19,7 +19,7 @@ var doesUserExists = (username, callback) => {
 };
 
 var insertUser = (username, password, callback) => {
-	var queryString = `insert into users (username, user_password) values ('${username}', SHA('${password}'))`;
+	var queryString = `insert into users (username, password) values ('${username}', SHA('${password}'))`;
 	mysqlWrapper.query(queryString, response => {
 		if (response.error) {
 			callback(false, response.error);
@@ -30,7 +30,7 @@ var insertUser = (username, password, callback) => {
 };
 
 var getUser = (username, password, callback) => {
-	var queryString = `select * from users where username = '${username}' and user_password = SHA('${password}')`;
+	var queryString = `select * from users where username = '${username}' and password = SHA('${password}')`;
 	mysqlWrapper.query(queryString, response => {
 		if (response.error) {
 			callback(response.error, null);
