@@ -7,7 +7,7 @@ var initConnection = () => {
 		host: 'localhost',
 		user: 'root',
 		password: 'password',
-		database: 'oauth_table'
+		database: 'oauth'
 	});
 };
 
