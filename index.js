@@ -22,6 +22,11 @@ const authRouter
     = require('./auth/router')(express.Router(), expressApp);
 expressApp.use('/auth', authRouter);
 
+// restricted route
+const restrictedRouter
+    = require('./restricted/router')(express.Router(), expressApp);
+expressApp.use('/restricted', restrictedRouter);
+
 // setup error handling after all routes are added
 expressApp.use(expressApp.oauth.errorHandler());
 

@@ -37,9 +37,14 @@ var getAccessToken = (accessToken, callback) => {
 	console.log('getAccessToken', accessToken);
 	accessTokenDB.getUsername(accessToken, username => {
 		if (username) {
-			callback('found');
+			callback(false, {
+				user: {
+					id: username.username
+				},
+				expires: null
+			});
 		} else {
-			callback('not found');
+			callback(false, null);
 		}
 	});
 };
